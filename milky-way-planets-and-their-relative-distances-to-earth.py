@@ -70,8 +70,8 @@ planet_colors = {
 
 
 # === SIMULATION SETTINGS ===
-start_year = 0
-end_year = 2999
+start_year = 2000
+end_year = 2025
 step_days = 1
 simulation_running = False
 
@@ -88,8 +88,12 @@ dates = []
 
 def update_dates():
     global dates
-    dates = [ts.utc(start_year, 1, 1).tt + i for i in range(0, (end_year - start_year) * 365, step_days)]
+    start_date = ts.utc(start_year, 1, 1)
+    end_date = ts.utc(end_year, 1, 1)
+    num_days = int((end_date - start_date) / step_days)
+    dates = [start_date.tt + i * step_days for i in range(num_days + 1)]
     dates = ts.tt_jd(dates)
+
 update_dates()
 
 
