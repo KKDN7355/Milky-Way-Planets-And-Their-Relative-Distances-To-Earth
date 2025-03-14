@@ -90,9 +90,15 @@ def update_dates():
     global dates
     start_date = ts.utc(start_year, 1, 1)
     end_date = ts.utc(end_year, 1, 1)
-    num_days = int((end_date - start_date) / step_days)
-    dates = [start_date.tt + i * step_days for i in range(num_days + 1)]
-    dates = ts.tt_jd(dates)
+    
+    # Ensure at least 1 frame to avoid empty animation
+    num_days = max(1, int(end_date.tt - start_date.tt))  # Ensure num_days is at least 1
+
+    # Generate a proper range
+    dates = ts.utc(start_year, 1, np.arange(0, num_days, step_days))  # Use np.arange to avoid empty range
+
+
+
 
 update_dates()
 
@@ -257,20 +263,31 @@ ani = None
 
 def start_simulation(event):
     global ani, frame_count, closest_counts, distance_sums
-    
+
     frame_count = 0
     closest_counts = {planet: 0 for planet in planets}
     distance_sums = {planet: 0 for planet in planets}
     update_dates()
 
-    if ani is None:
-        ani = animation.FuncAnimation(fig, update, frames=len(dates), interval=1, blit=False, repeat=False)
-    
-    ani.event_source.start()
-
-def stop_simulation(event):
+    # ✅ Check if ani exists before trying to stop it
     if ani is not None:
         ani.event_source.stop()
+        ani = None  # Reset animation reference
+
+    # ✅ Ensure fresh frames using range() (to avoid exhausted generator issue)
+    ani = animation.FuncAnimation(fig, update, frames=range(len(dates)), interval=1, blit=False, repeat=False)
+
+    plt.draw()  # Ensure the figure updates
+
+
+
+
+def stop_simulation(event):
+    global ani
+    if ani is not None:
+        ani.event_source.stop()
+        ani = None  # Reset animation reference
+
 
 
 # === UI ELEMENTS ===
