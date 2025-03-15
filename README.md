@@ -6,7 +6,7 @@ Milky Way Planets and Their Relative Distances to Earth is a Python-based simula
 ## Demo
 
 <p align="center">
-  <img src="Demo.gif" alt="Demo" width="300">
+  <img src="Demo.gif" alt="Demo" width="800">
 </p>
 
 ## Getting Started
