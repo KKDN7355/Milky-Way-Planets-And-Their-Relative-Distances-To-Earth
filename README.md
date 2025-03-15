@@ -1,7 +1,7 @@
 # Milky Way Planets and Their Relative Distances to Earth
 
 ## Description
-Milky Way Planets and Their Relative Distances to Earth is a Python-based simulation that visualizes the relative distances of planets in the Solar System to Earth over time. The project utilizes `matplotlib`, `skyfield`, and various Python libraries to generate dynamic visual representations, including a top-down view of the Solar System, a data table of distances, and a pie chart of how often each planet is closest to Earth.
+Milky Way Planets and Their Relative Distances to Earth is a Python-based simulation that visualises the relative distances of planets in the Solar System to Earth over time. The project utilises `matplotlib`, `skyfield`, and various Python libraries to generate dynamic visual representations, including a top-down view of the Solar System, a data table of distances, and a pie chart of how often each planet is closest to Earth.
 
 ## Demo
 
@@ -40,7 +40,7 @@ pip install matplotlib numpy skyfield
 
 ## Features
 
-- **Solar System Visualization**: A top-down view of the Solar System, showing planetary positions relative to Earth.
+- **Solar System Visualisation**: A top-down view of the Solar System, showing planetary positions relative to Earth.
 - **Live Data Simulation**: Uses `skyfield` ephemeris data to calculate accurate planetary positions.
 - **Dynamic Table of Distances**: Displays real-time calculations of each planet's distance from Earth.
 - **Ranking System**: Sorts planets based on their distance from Earth at each simulation step.
@@ -48,7 +48,7 @@ pip install matplotlib numpy skyfield
 - **User Controls**:
   - Start and stop simulation buttons.
   - Adjustable start and end years using text boxes.
-- **Color-coded Planet Representations**: Uses predefined colors for each planet to enhance visualization.
+- **Color-coded Planet Representations**: Uses predefined colors for each planet to enhance visualisation.
 - **Smooth Animations**: Animated updates for planetary motion and statistics.
 
 ## Roadmap
@@ -65,7 +65,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 - **Skyfield**: Used for astronomical calculations.
-- **Matplotlib**: Used for visualization and graphing.
+- **Matplotlib**: Used for visualisation and graphing.
 - **NASA Ephemeris Data**: Provides planetary position data.
 - **Inspired by various space simulation tools and astronomy research.**
 
